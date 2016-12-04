@@ -4,9 +4,9 @@ This file is meant to help you start learning Git and GitHub. It is not a tutori
 
 ## Background
 
-I first tried learning Git and GitHub by immersion on a real project with a team of remote people. I knew Git was "different" and that I'd need to unlearn various concepts and terminology from other source code management systems. I found that even good authors and astute colleagues sometimes wrote or spoke in a loose or inconsistent way that made it easy for a beginner to take a mental wrong turn. I was able to limp along, but at best I always needed a lot of help, and I never really felt like I knew what I was doing.
+I first tried learning Git and GitHub by immersion on a real project with a team of remote people. I knew Git was "different" and that I'd need to unlearn various concepts and terminology from other source code management systems. I found that even good authors and astute colleagues sometimes write or speak in a loose or inconsistent way that makes it easy for a beginner to take a mental wrong turn. I was able to limp along, but I always needed a lot of help, and I never really felt like I knew what I was doing.
 
-So I decided to start again from the ground up, getting clear on the underlying concepts and terminology before getting my hands too dirty. I read a lot, and took notes, documenting these concepts in my own words. This approach worked a lot better for me. Maybe this cleaned-up and expanded version of my notes will be helpful to you. If you find issues, let me know. I try to assume as little as possible about what you know.
+So I decided to start again from the ground up, getting clear on the underlying concepts and terminology before getting my hands too dirty. I read a lot, and took notes, documenting these concepts in my own words. This approach worked a lot better for me. Maybe this cleaned-up and expanded version of my notes will be helpful to you. I try to assume as little as possible about what you know. If you find issues, let me know.
 
 I've highlighted things that I had to unlearn, or insert into my brain with special care, as __Mental floss__.
 
@@ -53,7 +53,7 @@ Once the changes are merged, other team members can update their own local clone
 
 _[Gist](https://gist.github.com)_ is a web site run by GitHub, designed for simple Git projects that consist of a small number of files, or a single file or snippet. Gist is similar to a _[pastebin](https://en.wikipedia.org/wiki/Pastebin)_, with each gist having its own Git repository. Such repositories are also called gists.
 
-## Terms & Concepts: Working with repositories
+## Terms & concepts: Working with repositories
 
 A _repository_ is a set of files (usually source code) that makes up a project, stored on a Git server (such as GitHub).
 
@@ -61,13 +61,13 @@ _`init`_ -- creates a repository, either local (in the directory you specify) or
 
 A repository's _working directory_ is the folder (including subfolders) that contains its project files and its `.git` subfolder. A _bare_ or _shared_ repository has only the  `.git` subfolder, and thus no working directory, and is customarily used as a central repository to be shared by a team. [tbd: why?]
 
-A _clone_ is a copy of a repository that remembers the repository it is a copy of (called the _upstream_ repository), so that changes to the clone can later be merged back into that repository (using a _pull request_), or vice versa (using `sync`). The typical langage is that you "fork" a "master" repository on the server (thus creating a copy of the master that you can modify), and then "clone" a copy of the fork on your local machine (where you make and test changes). The fork and the clone are both repositories, each remembering its immediate parent. __Mental floss__: Git has no "fork" command ; GitHub added the "fork" operation to make collaboration a little easier by automating the common "fork and pull request" workflow. Colloquially, "fork" can refer to a copy of a repository on a server, or to a local clone of that copy, or to the act of creating those things.
+A _clone_ is a copy of a repository that remembers the repository it is a copy of (called the _upstream_ repository), so that changes to the clone can later be merged back into that repository (using a _pull request_), or vice versa (using `sync`).
 
-A _fork_ of a repository is a copy of the repository that knows where it was copied from, so that changes can be copied back and forth. 
+A _fork_ of a repository is a clone of that repository. __Mental floss__: This is among the most confusing parts of learning Git. Git has no "fork" command; GitHub added the "fork" operation to make collaboration easier by automating the common "fork and pull request" workflow. A typical workflow for making changes to a project is that you "fork" the project's "master" repository on the server (thus creating a copy of the master in your account so that you can modify it), and then "clone" a copy of the fork on your local machine (where you can make changes and test them out). The fork and the clone are both repositories, each remembering its immediate parent. The word "fork" can refer to a copy of a repository on a server, or to a local clone of that copy, or to both, or to the act of creating them.
 
 A _branch_ is similar to a fork, but it happens within a repository instead of creating a new repository. Only registered collaborators on a project can create a branch. A branch is a pointer to a commit. The branch becomes another remote for the project. Branches have labels. Every branch has a default label called `master`, which always points to the latest commit for that branch. [tbd: check all this]
 
-A _pull request_ is the way to tell the owner of a repository that you have some code that you think should be merged into it. In other words, you are requesting that the repository owner accept your changes by "pulling" them into his projecct; you are not allowed to "push" your changes into someone else's repository.
+A _pull request_ is the way to tell the owner of a repository that you have some code that you think should be merged into the repository. In other words, you are requesting that the repository owner accept your changes by "pulling" them into his project; you are not allowed to "push" your changes into someone else's repository.
 
 To _sync_ a clone/branch/fork is to update it with the latest stuff from a _remote_ repository, usually its _upstream_ remote, which is normally named _`origin`_. This does not modify any project files on the server. __Mental floss__: In many systems, "sync" means to send changes back and forth. In Git, syncing is a one-way operation. [tbd: what actually happens to files with differences?]
 
@@ -77,7 +77,7 @@ A _remote_ for a project is a repository specified as a named URL. A remote can 
 
 _`Origin`_ is the standard name for the default remote for a project. The default remote is the repository that your code will be merged with if someone acts on your pull request.
 
-## Terms & Concepts: Working with files
+## Terms & concepts: Working with files
 
 _Commit_ -- copies changes in staged files to a repository. (Also launches your default editor ($EDITOR) with some default commit comment text. When you exit the editor, comment lines are stripped out. Or use git commit -m "comment".) As a noun, a commit is a snapshot of the Tracked files in your working directory.
 
