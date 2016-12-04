@@ -1,8 +1,8 @@
 ### git-primer
 
-Notes to myself about learning Git. This is not a tutorial. It is a self-contained introduction to the basic concepts, with pointers to more information useful to beginners.
+This file is mean to help you get started with Git and GitHub. It is not a tutorial. It is an introduction to the basic concepts and terminology, with pointers to more information that might be especially useful to beginners. It aims to be clear, unambiguous, correct, and helpful.
 
-## Background:
+## Background
 
 I first tried learning Git and GitHub by immersion on a real project with a team of remote people. I knew Git was "different" and that I'd need to unlearn various concepts and terminology from other source code management systems. I found that even good authors and astute colleagues sometimes wrote or spoke in a loose or inconsistent way that made it easy for a beginner to take a mental wrong turn. I was able to limp along, but at best I always needed a lot of help, and I never really felt like I knew what I was doing.
 
@@ -16,7 +16,7 @@ _[Git](https://en.wikipedia.org/wiki/Git)_ is a software program that keeps trac
 
 To Git users, a project is simply a folder and its contents, including any subfolders and their contents, and so on. Most projects managed by Git contain files of software code, but people also use Git to manage things like artwork files, documentation files, etc. A project folder can also contain files that aren't managed/tracked by Git, such as log files or other incidental material. Git ignores such files.
 
-Git is command-line software, and it is somewhat complex as these things go, so it is hard for many people to learn. A good way to get started with Git is to use _[GitHub](https://github.com)_, which is a web site that supplies a web interface for most Git functionality. Many people find this much easier to use than the command line, especially for the most common operations. Many GitHub users find that they never need to use Git directly. Still, it is essential to understand the basic Git concepts.
+Git is [command-line software](https://en.wikipedia.org/wiki/Command-line_interface), and it is somewhat complex as these things go, so it is hard for many people to learn. A good way to get started with Git is to use _[GitHub](https://github.com)_, which is a web site that supplies a web interface for most Git functionality. Many people find GitHub to be much easier to use than Git as a command line tool, especially for the most common operations. A GitHub user might never need to use Git directly. Even so, it is essential to understand the basic Git concepts and terminology.
 
 GitHub also provides project storage, comprising millions of public and private projects. GitHub also offers other collaboration functionality for each project, such as bug tracking and [wikis](https://en.wikipedia.org/wiki/Wiki).
 
@@ -53,8 +53,8 @@ Once the changes are merged, other team members can update their own local clone
 
 _[Gist](https://gist.github.com)_ is a web site run by GitHub, designed for simple Git projects comprising snippets of text or code. It is similar to a _[pastebin](https://en.wikipedia.org/wiki/Pastebin)_, with each gist having its own Git repository.
 
-## Terms & Concepts:
- 
+## Terms & Concepts: Working with repositories
+
 A _repository_ is a set of files (usually source code) that makes up a project, stored on a Git server (such as GitHub).
 
 _`init`_ -- creates a repository, either local (in the directory you specify) or remote (by running it on a server). This is how you create a repository from scratch. Most repositories are created by cloning instead.
@@ -69,13 +69,15 @@ A _branch_ is similar to a fork, but it happens within a repository instead of c
 
 A _pull request_ is the way to tell the owner of a repository that you have some code that you think should be merged into it. In other words, you are requesting that the repository owner accept your changes by "pulling" them into his projecct; you are not allowed to "push" your changes into someone else's repository.
 
-To _sync_ a clone/branch/fork is to update it with the latest stuff from a _remote_ repository, usually its _upstream_ remote, which is normally called `origin`. This does not modify any project files on the server. __Mental floss__: In many systems, "sync" means to send changes back and forth. In Git, syncing is a one-way operation. [tbd: what actually happens to files with differences?]
+To _sync_ a clone/branch/fork is to update it with the latest stuff from a _remote_ repository, usually its _upstream_ remote, which is normally named _`origin`_. This does not modify any project files on the server. __Mental floss__: In many systems, "sync" means to send changes back and forth. In Git, syncing is a one-way operation. [tbd: what actually happens to files with differences?]
 
 An _upstream_ repository is the one that a clone was copied from.
 
-A _remote_ is a repository specified as a named URL. A remote can point to a repository on GitHub, or on a different server, or a local clone. The default remote for a project is usually named `origin`. Use `git remote -v` to list a project's remote names and the URL for each name. Use `git remote add` to associate a remote URL with a name.
+A _remote_ for a project is a repository specified as a named URL. A remote can point to a repository on GitHub, or on a different server, or a local repository. A project can have several remotes, or none. The default remote for a project is the repository that the project was cloned from, and it is normally named _`origin`_. Use `git remote -v` to list a project's remotes. Use `git remote add` to associate a remote URL with a name.
 
-_Origin_ - what your default remote for a project is usually called -- it is the "origin" that your code will be pulled toward if someone acts on your pull request.
+_Origin_ - what your default remote for a project is usually called -- it is the repository that your code will merged with if someone acts on your pull request.
+
+## Terms & Concepts: Working with files
 
 _Commit_ -- copies changes in staged files to a remote repository. (Also launches your default editor ($EDITOR) with some default commit comment text. When you exit the editor, comment lies are stripped out. Or use git commit -m "comment".) As a noun, a commit is a snapshot of the Tracked files in your working directory.
 
