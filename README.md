@@ -14,15 +14,17 @@ I've highlighted things that I had to unlearn, or insert into my brain with spec
 
 _[Git](https://en.wikipedia.org/wiki/Git)_ is a software program that keeps track of changes to a project over time. (Technically, it is a "distributed version control system", or DVCS.)
 
-To Git users, a project is simply a folder and its contents, including any subfolders and their contents, and so on. Most projects managed by Git contain files of software code, but people also use Git to manage things like artwork, documentation, etc. A project folder can also contain files that aren't managed/tracked by Git, such as log files or other incidental material. Git ignores such files.
+To Git users, a project is simply a folder and its contents, including any subfolders and their contents, and so on. Most projects managed by Git contain files of software code, but people also use Git to manage things like artwork files, documentation files, etc. A project folder can also contain files that aren't managed/tracked by Git, such as log files or other incidental material. Git ignores such files.
 
-Git is command-line software, and it is somewhat complex, so it is hard for many people to learn. A good way to get started with Git is to use _[GitHub](https://github.com)_, which is a web site that supplies a web interface for most Git functionality. Many people find this much easier to use than the command line, especially for the most common operations. Many GitHub users find that they never need to use Git directly. Still, it is essential to understand the basic Git concepts.
+Git is command-line software, and it is somewhat complex as these things go, so it is hard for many people to learn. A good way to get started with Git is to use _[GitHub](https://github.com)_, which is a web site that supplies a web interface for most Git functionality. Many people find this much easier to use than the command line, especially for the most common operations. Many GitHub users find that they never need to use Git directly. Still, it is essential to understand the basic Git concepts.
 
 GitHub also provides project storage, comprising millions of public and private projects. GitHub also provides other collaboration functionality such as bug tracking and wikis for each project.
 
 ## How does Git work?
 
-Git stores its data in a _repository_, or _repo_ for short. A Git repository is stored in the top level of the project folder, right alongside the project files, in a subfolder named `.git`. That subfolder contains, among other things, a record of every change to every file in the project since Git started managing the project. Most users don't need to know how the repository subfolder is organized. You might never even see the repository subfolder, because items whose names start with a period are typically hidden from view. Note also that there is only one repository subfolder per project. (Some other version control systems maintain file-tracking info in each subfolder of a project.)
+Git stores its data in a _repository_, or _repo_ for short. A Git repository is stored in the top level of the project folder, right alongside the project files and subfolders, in a special repository subfolder named `.git`. The repository subfolder contains, among other things, a record of every change to every file in the project since Git started managing the project.
+
+There is only one repository subfolder per project, regardless of how many subfolders the project has. (Some other version control systems maintain file-tracking info in each subfolder of a project.) Most users don't need to know how the repository subfolder itself is organized. You might never even see the repository subfolder, because items whose names start with a period are typically hidden from view.
 
 __Mental floss__: Sometimes authors use "repository" to mean the entire project folder, including the `.git` repository subfolder, and sometimes it means the just the `.git` subfolder. Don't confuse the two usages.
 
