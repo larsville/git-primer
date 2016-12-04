@@ -1,6 +1,6 @@
 ### git-primer
 
-This file is mean to help you get started with Git and GitHub. It is not a tutorial. It is an introduction to the basic concepts and terminology, with pointers to more information that might be especially useful to beginners. It aims to be clear, unambiguous, correct, and helpful.
+This file is meant to help you start learning Git and GitHub. It is not a tutorial. It is an introduction to the basic concepts and terminology, with pointers to more information that might be especially useful to beginners. It aims to be helpful by being clear, unambiguous, correct, and relatively concise.
 
 ## Background
 
