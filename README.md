@@ -18,7 +18,7 @@ To Git users, a project is simply a folder and its contents, including any subfo
 
 Git is command-line software, and it is somewhat complex as these things go, so it is hard for many people to learn. A good way to get started with Git is to use _[GitHub](https://github.com)_, which is a web site that supplies a web interface for most Git functionality. Many people find this much easier to use than the command line, especially for the most common operations. Many GitHub users find that they never need to use Git directly. Still, it is essential to understand the basic Git concepts.
 
-GitHub also provides project storage, comprising millions of public and private projects. GitHub also provides other collaboration functionality such as bug tracking and wikis for each project.
+GitHub also provides project storage, comprising millions of public and private projects. GitHub also offers other collaboration functionality for each project, such as bug tracking and [wikis](https://en.wikipedia.org/wiki/Wiki).
 
 ## How does Git work?
 
@@ -39,13 +39,13 @@ Git can be useful for tracking changes to projects that only one person works on
 
 To make a change, a team member edits the files on his local clone repository, and/or creates new files. The team member then adds the changed & new files to a list in the local clone repository, using the `git add` command, which automatically figures out which files are changed & new. This list is called the _staging area_ or _index_. Once all desired changes are made, the team member documents the changes in the local clone repository using the `git commit` command. Committing changes to the staging area is one of the most frequently used Git operations.
 
-__Mental floss__: "origin" means the repo that a clone was cloned from, but "original" often refers to the upstream repo; i.e. the one that is original to the project.
+__Mental floss__: "origin" means the repo that a clone was cloned from, but "original" often refers to the most upstream repo; i.e. the one that is original to the project.
 
-__Mental floss__: "fork" is not a Git command; it is a GitHub command that supports the common "fork and pull" workflow. Colloquially, a "fork" is a clone of a repository.
+__Mental floss__: "fork" is not a Git command; it is a GitHub command that supports the common "fork and pull" workflow. Colloquially, "fork" can refer to a copy of a repository on a server, or to a local clone of that copy, or the act of creating those things.
 
 __Mental floss__: Adding a file doesn't mean adding it to the set of files managed by Git. It means adding it to the staging area for the next commit. You might "add" the same file many times before committing the accumulated changes. Also, committing doesn't mean merging changes into a "master" repository somewhere. It means recording them in your local staging area. Merging changes committed in one repository to another repository is done via a pull or push, which might encompass many commits. Note that commit can be a verb (the act of committing), or a noun (the resulting record of changes).]
 
-After the commit, the local clone repository has recorded all the changes, and the user can continue to do more work without affecting that commit. But that doesn't do the team any good until the changes are submitted back to the original repository. To do this, the team member who made the changes can issue a pull request. This notifies the owner(s) of the original repository that someone wishes to submit work that is recorded in a commit. The owner(s) of the original repository can review the changes, reject them, ask for more information, or accept them. (Specific team members might be listed as contributors to the original repository. In that case, they can push their changes directly to the original repository, bypassing the pull request process.)
+After the commit, the local clone repository has recorded all the changes, and the user can continue to do more work without affecting that commit. But that doesn't do the team any good until the changes are submitted back to the original repository. To do this, the team member who made the changes can issue a _pull request_. This notifies the owner(s) of the original repository that someone wishes to submit work that is recorded in a commit. The owner(s) of the original repository can review the changes, reject them, ask for more information, or accept them. (Specific team members might be listed as contributors to the original repository. In that case, they can push their changes directly to the original repository, bypassing the pull request procedure.)
 
 Once the changes are merged, other team members can update their own local clone repositories from the original repository. Team members can do further edits and commits, or they can delete their local repositories, since the network repository will have a record of everything that was done. With Git, each repository has a record of all changes to all project files, even if it no longer has access to the machine on which the changes were done.
 
@@ -54,59 +54,55 @@ Once the changes are merged, other team members can update their own local clone
 _[Gist](https://gist.github.com)_ is a web site run by GitHub, designed for simple Git projects comprising snippets of text or code. It is similar to a _[pastebin](https://en.wikipedia.org/wiki/Pastebin)_, with each gist having its own Git repository.
 
 ## Terms & Concepts:
-
+ 
 A _repository_ is a set of files (usually source code) that makes up a project, stored on a Git server (such as GitHub).
 
-A _bare_ or _shared_ repository is a special kind of repository that doesn't have a working directory. This is the standard way to start a project that many people will work on. [  ] needs more
+_`init`_ -- creates a repository, either local (in the directory you specify) or remote (by running it on a server). This is how you create a repository from scratch. Most repositories are created by cloning instead.
 
-A _fork_ is a copy of a repository that remembers the repository it is a copy of (called the upstream repository), so that changes to the fork can later be merged back into that repository, and vice versa (using a pull request). You might think that this copy lives on your machine, but it doesn't until you clone it. In fact, saying that a fork is a copy is taking a liberty -- it is more like a declaration of intent to make a copy of the files.
-[ ] is a fork just a (special?) repository? Is it anything at all in Git? It is a control in GitHub, but there is no "fork" command in Git, you just clone something. Maybe cloning on the server = forking or branching, cloning on the desktop = "cloning".
+A repository's _working directory_ is the folder (including subfolders) that contains its project files and its `.git` subfolder. A _bare_ or _shared_ repository has only the  `.git` subfolder, and thus no working directory, and is customarily used as a central repository to be shared by a team. [tbd: why?]
+
+A _fork_ is a clone (copy) of a GitHub repository that remembers the repository it is a copy of (called the _upstream_ repository), so that changes to the fork can later be merged back into that repository (using a _pull request_), and vice versa (using `sync`). Git has no "fork" command ; GitHub added the "fork" operation to make collaboration a little easier. 
 
 A _clone_ of a repository is a copy of the repository files on your computer. You clone a repository (usually a fork of another repository) so that you can make changes to its files, or to use it as the starting point for a new project.
 
-A _branch_ is similar to a fork, but it happens on the server side instead of the client side. Only registered collaborators on a project can create a branch. The branch becomes another remote for the project. A branch is a pointer to a commit. Branches have labels. Every branch has a default label called Master, which always points to the latest commit for that branch. 
+A _branch_ is similar to a fork, but it happens within a repository instead of creating a new repository. Only registered collaborators on a project can create a branch. A branch is a pointer to a commit. The branch becomes another remote for the project. Branches have labels. Every branch has a default label called `master`, which always points to the latest commit for that branch. [tbd: check all this]
 
-A _pull request_ is the way to tell the owner of a repository that you have some code that you think should be merged into it. (I suppose the name means that you are requesting that the repository owner pull your code into his.)
+A _pull request_ is the way to tell the owner of a repository that you have some code that you think should be merged into it. In other words, you are requesting that the repository owner accept your changes by "pulling" them into his projecct; you are not allowed to "push" your changes into someone else's repository.
 
-_Syncing_ a clone/branch/fork is updating it with the latest stuff in its upstream repository. This does not modify any project files on the server.
+To _sync_ a clone/branch/fork is to update it with the latest stuff from a _remote_ repository, usually its _upstream_ remote, which is normally called `origin`. This does not modify any project files on the server. __Mental floss__: In many systems, "sync" means to send changes back and forth. In Git, syncing is a one-way operation. [tbd: what actually happens to files with differences?]
 
-__Mental floss__: In many systems, "sync" means to send changes back and forth. In Git, syncing is a one-way operation.
+An _upstream_ repository is the one that a clone was copied from.
 
-[ ] what happens to files with differences?
-[ ] to sync, you must first "configure an upstream remote". WTF? Also, do you have to do this every time you sync?
+A _remote_ is a repository specified as a named URL. A remote can point to a repository on GitHub, or on a different server, or a local clone. The default remote for a project is usually named `origin`. Use `git remote -v` to list a project's remote names and the URL for each name. Use `git remote add` to associate a remote URL with a name.
 
-_Remote_ [URL] - a repository where files are stored; could be a repository on GitHub, or a different server, or a fork. Remotes have names. Your default remote is usually called "origin". Use "git remote -v" to list remote short names/handles and URLs. Use "git remote add" to associate a remote with a name.
-_Origin_ - what your default remote for a project is usually called -- it is the "origin" that your code will be pulled toward.
-_Upstream_
+_Origin_ - what your default remote for a project is usually called -- it is the "origin" that your code will be pulled toward if someone acts on your pull request.
 
 _Commit_ -- copies changes in staged files to a remote repository. (Also launches your default editor ($EDITOR) with some default commit comment text. When you exit the editor, comment lies are stripped out. Or use git commit -m "comment".) As a noun, a commit is a snapshot of the Tracked files in your working directory.
+
 _Push_ -- pushes commits made on your local branch to a remote repository
-_Fetch_ -- do this before you can push local changes (does this apply only to branches, or to forks as well?)
-_Merge_ -- do this before you can push local changes (does this apply only to branches, or to forks as well?)
 
-_Upstream_ -- the repository that a fork was made from is the upstream repository.
+_Fetch_ -- do this before you can push local changes [tbd: does this apply only to branches, or to forks as well?]
 
-_Index_ or _staging area_ is a file (in the working directory?) that contains info about what will go into your next commit
+_Merge_ -- do this before you can push local changes [tbd: does this apply only to branches, or to forks as well?]
+
+A project's _index_ or _staging area_ is a list that contains info about what will go into the next commit for that project.
 
 _Add_ -- adds a file to the next commit, (which can also add it to the project; i.e. make it Tracked. Or use `git commit -a -m "comment"` to skip the separate add step; this will automatically stage every tracked file before committing it.)
-_Checkout_ -- restores a Modified file (Staged or Unstaged) to its state as of last commit. (Not undoable!)
 
-_Init_ -- creates a repository, either local (in the directory you specify) or remote (by running it on a server). This is how you create a repository from scratch. Most repositories are created by cloning instead.
+_Checkout_ -- restores a `modified` file (whether `staged` or `unstaged`) to its state as of the last commit. Note the checkout is not undoable! __Mental floss__: This is vastly different from what "checkout" means in some version control systems, i.e. to unlock a local copy of a file so that you can edit it.
 
-_Working directory_ -- the folder tree where you have content that you want to manage with Git. A bare repository has only metadata, and no working directory, and is customarily used as a central repository to be shared by a team. A non-bare repository has a .git folder to store Git metadata.
+A file in a repository is _tracked_ if Git knows about it. Otherwise it is _untracked_. Adding a file causes it to be tracked and staged. Removing a modified file causes it to be untracked. [tbd: can you remove a modified or staged file?]
 
-_Tracked_ -- a file on your local machine is "tracked" if Git knows about it. Otherwise it is untracked. Adding a file causes it to be tracked and staged. Removing a modified file causes it to be untracked. [ ] Can you remove a modified or staged file?
+A _tracked_ file is in one of these states: _unmodified_ / _modified_ / _staged_. Editing an unmodified file causes it to become modified. Adding a modified file causes it to become staged. Committing a staged file causes it to become unmodified.
 
-_Unmodified_ / _Modified_ / _Staged_ -- a tracked file is in one of these states. Editing an Unmodified file causes it to become Modified. Adding a Modified file causes it to become Staged. Committing a Staged file causes it to become Unmodified.
+__Mental floss__: A file can be both _staged_ and _unstaged_ at the same time! If you modify it and then add it, it will become _unstaged_, and if you then modify it again, there will be a _staged_ version and an _unstaged_ version. Adding it again will stage the most recently edited version and vaporize the previously _staged_ version.
 
-_Rebase_ [ ] tbd
+`git diff` shows changes in _modified_ but _unstaged_ files.
+`git diff --staged` or `git diff --cached` shows changes in _unstaged_ files.
 
-__Mental floss__: A file can be both staged and unstaged at the same time! If you modify it and then add it, it will become staged, and if you then modify it again, there will be a staged version and an unstaged version. Adding it again will stage the most recently edited version and vaporize the previously staged version.
+__Tip__: commit all staged files before merge or checkout [tbd: explain]
 
-`git diff` shows changes in modified but unstaged files.
-`git diff --staged` or `git diff --cached` shows changes in staged files.
-
-__Tip__: commit all staged files before merge or checkout
+_Rebase_ [tbd: add]
 
 ## Basic Workflow: Making changes to a project
 
