@@ -153,3 +153,6 @@ _Pieter Hintjens_ - "Git Branches Considered Harmful" argues for always forking,
 http://hintjens.com/blog:24
 
 Copyright (c) 2016 Lars Jensen
+
+
+I suggest these changes.
