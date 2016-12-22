@@ -126,30 +126,30 @@ _Rebase_ [tbd: add]
 
 ## Good sources that helped me solidify my understanding:
 
-_Atlassian Git Tutorial_ - One of the best tutorials. Detailed, lengthy, clean, well written.  
-https://www.atlassian.com/git/tutorials/  
+_Atlassian Git Tutorial_ - One of the best tutorials. Detailed, lengthy, clean, well written.
+https://www.atlassian.com/git/tutorials/
 
-_Pro Git_ - A very popular, comprehensive reference. The Git bible, for many. I don't personally recommend it as a tutorial because I think it tends to introduce new terms without defining them well enough, and I find the language to be a bit loose.  
+_Pro Git_ - A very popular, comprehensive reference. The Git bible, for many. I don't personally recommend it as a tutorial because I think it tends to introduce new terms without defining them well enough, and I find the language to be a bit loose.
 https://git-scm.com/book/en/v2
 
-_Understanding Git Conceptually_ - A tutorial that builds understanding starting with the data model, an approach I like. A bit abstract and technical in spots, but precisely and concisely written. I used it to spot-clean mental stains left in my brain by less fastidious authors.  
+_Understanding Git Conceptually_ - A tutorial that builds understanding starting with the data model, an approach I like. A bit abstract and technical in spots, but precisely and concisely written. I used it to spot-clean mental stains left in my brain by less fastidious authors.
 https://www.sbf5.com/~cduan/technical/git/
 
-_Scott Lowe_ - Very good tutorial pages with a lot of explanatory detail and clear, relatively non-technical writing.  
-http://blog.scottlowe.org/2015/01/14/non-programmer-git-intro/  
-http://blog.scottlowe.org/2015/01/26/using-git-with-github/  
-http://blog.scottlowe.org/2015/01/27/using-fork-branch-git-workflow/  
+_Scott Lowe_ - Very good tutorial pages with a lot of explanatory detail and clear, relatively non-technical writing.
+http://blog.scottlowe.org/2015/01/14/non-programmer-git-intro/
+http://blog.scottlowe.org/2015/01/26/using-git-with-github/
+http://blog.scottlowe.org/2015/01/27/using-fork-branch-git-workflow/
 
-_Bryan Pendleton_ - Good discussion of forking vs cloning. Summary: They both copy a repo, but you fork on the server, and clone the fork locally. Work in the clone, push/pull to the fork to show others your work.  
+_Bryan Pendleton_ - Good discussion of forking vs cloning. Summary: They both copy a repo, but you fork on the server, and clone the fork locally. Work in the clone, push/pull to the fork to show others your work.
 http://bryanpendleton.blogspot.com/2014/07/git-clone-vs-fork.html
 
-_Jon Saints_ - Good discussion of bare repositories. Summary: They are the usual way to implement a central repo.  
+_Jon Saints_ - Good discussion of bare repositories. Summary: They are the usual way to implement a central repo.
 http://www.saintsjd.com/2011/01/what-is-a-bare-git-repository/
 
-_Steve Bennet_ - Instructive list of several Git downsides, including a great diagram that serves as a nice cheat sheet (even as it indicts Git's command complexity).  
+_Steve Bennet_ - Instructive list of several Git downsides, including a great diagram that serves as a nice cheat sheet (even as it indicts Git's command complexity).
 http://stevebennett.me/2012/02/24/10-things-i-hate-about-git/
 
-_Pieter Hintjens_ - "Git Branches Considered Harmful" argues for always forking, never branching.  
+_Pieter Hintjens_ - "Git Branches Considered Harmful" argues for always forking, never branching.
 http://hintjens.com/blog:24
 
-Copyright (c) 2016 Lars Jensen
+Copyright (c) 2016 Lars Jensen & Nathan Murith
