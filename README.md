@@ -1,5 +1,7 @@
 ### Git Primer
 
+Copyright (c) 2016 Lars Jensen
+
 This file is meant to help you start learning Git and GitHub. It is not a tutorial. It is an introduction to the basic concepts and terminology, with pointers to more information that might be especially useful to beginners. It aims to give readers a solid mental foundation by being clear, concise, correct, and unambiguous.
 
 ## Background
@@ -151,5 +153,3 @@ http://stevebennett.me/2012/02/24/10-things-i-hate-about-git/
 
 _Pieter Hintjens_ - "Git Branches Considered Harmful" argues for always forking, never branching.  
 http://hintjens.com/blog:24
-
-Copyright (c) 2016 Lars Jensen
