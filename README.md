@@ -81,7 +81,7 @@ _`Origin`_ is the standard name for the default remote for a project. The defaul
 
 ## Terms & concepts: Working with files
 
-_Commit_ -- copies changes in staged files to a repository. (Also launches your default editor ($EDITOR) with some default commit comment text. When you exit the editor, comment lines are stripped out. Or use git commit -m "comment".) As a noun, a commit is a snapshot of the Tracked files in your working directory.
+_Commit_ -- copies changes in staged files to a repository. (Also launches your default editor ($EDITOR) with some default commit comment text. When you exit the editor, comment lines are stripped out. Or use `git commit -m "comment"`.) As a noun, a commit is a snapshot of the Tracked files in your working directory.
 
 _Push_ -- pushes commits made on your local branch to a remote repository [tbd: explain vs pull]
 
