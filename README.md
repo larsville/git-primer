@@ -99,7 +99,7 @@ A file in a repository is _tracked_ if Git knows about it. Otherwise it is _untr
 
 A _tracked_ file is in one of these states: _unmodified_ / _modified_ / _staged_. Editing an unmodified file causes it to become modified. Adding a modified file causes it to become staged. Committing a staged file causes it to become unmodified.
 
-__Mental floss__: A file can be both _staged_ and _unstaged_ at the same time! If you modify it and then add it, it will become _unstaged_, and if you then modify it again, there will be a _staged_ version and an _unstaged_ version. Adding it again will stage the most recently edited version and vaporize the previously _staged_ version.
+__Mental floss__: A file can be both _staged_ and _unstaged_ at the same time! If you modify it and then add it, it will become _staged_, and if you then modify it again, there will be a _staged_ version and an _unstaged_ version. Adding it again will stage the most recently edited version and vaporize the previously _staged_ version.
 
 `git diff` shows changes in _modified_ but _unstaged_ files.
 `git diff --staged` or `git diff --cached` shows changes in _unstaged_ files.
