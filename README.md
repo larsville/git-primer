@@ -53,7 +53,7 @@ Once the changes are merged, other team members can update their own local clone
 
 ## What is Github Gist?
 
-_[Gist](https://gist.github.com)_ is a web site run by GitHub, designed for simple Git projects that consist of a small number of files, or a single file or snippet. Gist is similar to a _[pastebin](https://en.wikipedia.org/wiki/Pastebin)_, with each _gist_ having its own Git repository. Such a repository is also called a _gist_.
+_[Gist](https://gist.github.com)_ is a web site run by GitHub, designed for simple Git projects that consist of a small number of files, or a single file or snippet. Gist is similar to a _[pastebin](https://en.wikipedia.org/wiki/Pastebin)_, with each _gist_ having its own Git repository. Such a repository is also called a _gist_. (This primer would probably be good as a gist.)
 
 ## Terms & concepts: Working with repositories
 
