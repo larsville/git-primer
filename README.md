@@ -1,6 +1,6 @@
 ### Git Primer
 
-Copyright (c) 2016 Lars Jensen
+Copyright (c) 2016-2019 Lars Jensen
 
 This file is meant to help you start learning Git and GitHub. It is not a tutorial. It is an introduction to the basic concepts and terminology, with pointers to more information that might be especially useful to beginners. It aims to give readers a solid mental foundation by being clear, concise, correct, and unambiguous.
 
@@ -16,9 +16,9 @@ I've highlighted things that I had to unlearn, or insert into my brain with spec
 
 _[Git](https://en.wikipedia.org/wiki/Git)_ is a software program that keeps track of changes to a project over time. (Technically, it is a "distributed version control system", or DVCS.)
 
-To Git users, a "project" is simply a folder and its contents, including any subfolders and their contents, and so on. Most projects managed by Git contain files of software code, but people also use Git to manage things like artwork files, documentation files, etc. A project folder can also contain files that aren't managed/tracked by Git, such as log files or other incidental material. Git ignores such files.
+To Git users, a "project" is simply a folder and its contents, including any subfolders and their contents, and so on. Most projects managed by Git contain files of software code, but people also use Git to manage things like artwork files, documentation files, etc. A project folder can also contain files that aren't managed/tracked by Git, such as log files or other incidental material. Git ignores such files (other than informing you now and then that they are untracked).
 
-Git is [command-line software](https://en.wikipedia.org/wiki/Command-line_interface), and it is somewhat complex as these things go, so it is hard for many people to learn. A good way to get started with Git is to use _[GitHub](https://github.com)_, which is a web site that supplies a web interface for most Git functionality. Many people find the GitHub web site to be much easier to use than Git as a command line tool, especially for the most common operations. A GitHub user might never need to use Git directly. Even so, it is essential to understand the basic Git concepts and terminology.
+Git is [command-line software](https://en.wikipedia.org/wiki/Command-line_interface), and it is somewhat complex as these things go, so many people find it hard to learn. A good way to get started with Git is to use _[GitHub](https://github.com)_, which is a web site that supplies a web interface for most Git functionality. Many people find the GitHub web site to be much easier to use than Git as a command line tool, especially for the most common operations. Another way to bypass the pitfalls of learning a command-line tool is to use a desktop Git client such as _[GitHub Desktop](https://desktop.github.com)_, which is an app for Mac or Windows that presents Git functionality in a traditional desktop graphical user interface. Many source code editors can also perform Git functions directly. The choice of how to access your Git files is up to you. Even so, it is essential to understand the basic Git concepts and terminology.
 
 GitHub also provides project storage, comprising millions of public and private projects. GitHub also offers other collaboration functionality for each project, such as bug tracking and [wikis](https://en.wikipedia.org/wiki/Wiki).
 
@@ -26,14 +26,14 @@ GitHub also provides project storage, comprising millions of public and private 
 
 Git stores its data in a _repository_, or _repo_ for short. A Git repository is stored in the top level of the project folder, right alongside the project files and subfolders, in a special repository subfolder named `.git`. The repository subfolder contains, among other things, a record of every change to every file in the project since Git started managing the project.
 
-There is only one repository subfolder per project, regardless of how many subfolders the project has. (Some other version control systems maintain file-tracking info in each subfolder of a project.) Most users don't need to know how the repository subfolder itself is organized. You might never even see the repository subfolder, because items whose names start with a period are typically hidden from view.
+There is only one repository subfolder per project, regardless of how many subfolders the project has. (Some other version control systems maintain file-tracking info in each subfolder of a project instead.) Most users don't need to know how the repository subfolder itself is organized. You might never even see the repository subfolder, because items whose names start with a period are typically hidden from view. But its presence is what allows Git to operate on the project files.
 
-__Mental floss__: Sometimes authors use "repository" to mean the entire project folder, including the `.git` repository subfolder, and sometimes it means the just the `.git` subfolder. Don't confuse the two usages.
+__Mental floss__: Most of the time, "repository" refers in a general way to the entire project folder, including the `.git` repository subfolder. But be aware that the `.git` subfolder on its own is also sometimes called a "repository".
 
 Here are some times when it makes sense to create a repository:
 
 * starting a new project just for yourself, on your local drive
-* starting a new project for your team on a network drive or web site (like GitHub).
+* starting a new project for your team on a network drive or a web site (like GitHub).
 * copying a repository as a way to make changes to a project (a.k.a. _cloning_ or _forking_ or _branching_)
 * copying a repository as a way to start a new project
 
@@ -41,11 +41,11 @@ Git can be useful for tracking changes to projects that only one person works on
 
 __Mental floss__: "origin" means the repo that a clone was cloned from, but "original" often refers to the most upstream repo; i.e. the one that is original to the project.
 
-To make a change, a team member edits the files on his local clone repository, and/or creates new files. The team member then records the changes & new files in a list in the local clone repository. This list is called the _staging area_ or _index_. Changes are recorded in the staging area using the `git add` command, which automatically figures out which files are changed & new. Once all desired changes are made, the team member documents the changes in the local clone repository using the `git commit` command. Committing changes in the staging area is one of the most frequent Git operations.
+To make a change, a team member edits the files (and/or creates new files) on his local clone repository. The team member then records the changes & new files in a list in the local clone repository. This list is called the _staging area_ or _index_. Changes are recorded in the staging area using the `git add` command, which automatically figures out which files are changed & new. Once all desired changes are made, the team member documents the set of changes in the local clone repository using the `git commit` command. Committing changes in the staging area is one of the most frequent Git operations.
 
 __Mental floss__: Adding a file does _not_ mean adding it to the set of files managed by Git. It means adding changes made to that file to the staging area for the next commit operation. You might "add" the same file many times before "committing" the accumulated changes.
 
-__Mental floss__: Committing does _not_ mean merging changes into a "master" repository somewhere. It means recording them (usually with comments) in your local repository from the staging area, and then emptying the staging area. Merging changes committed in one repository to another repository is done via a pull or push, which might encompass many commits. Note that commit can be a verb (the act of committing), or a noun (the resulting record of changes).
+__Mental floss__: Committing does _not_ mean merging changes into a "master" repository somewhere. It means recording them (usually with comments) in your local repository from the staging area, and then emptying the staging area. Merging changes committed in one repository to another repository is done via a _pull_ or _push_, which might encompass many commits. Note that _commit_ can be a verb (the act of committing, e.g. "I just committed my changes"), or a noun (the resulting record of changes, e.g "What's in that commit?").
 
 After the commit, the local clone repository has recorded all the changes, and the user can continue to do more work without affecting that commit. But that doesn't do the team any good until the changes are submitted back to the original repository. To do this, the team member who made the changes can issue a _pull request_. This notifies the owner(s) of the original repository that someone wishes to submit work that is recorded in a commit. The owner(s) of the original repository can review the changes, reject them, ask for more information, or accept them. (Specific team members might be listed as _contributors_ to the original repository. In that case, they can push their changes directly to the original repository, bypassing the pull request procedure.)
 
@@ -53,11 +53,11 @@ Once the changes are merged, other team members can update their own local clone
 
 ## What is Github Gist?
 
-_[Gist](https://gist.github.com)_ is a web site run by GitHub, designed for simple Git projects that consist of a small number of files, or a single file or snippet. Gist is similar to a _[pastebin](https://en.wikipedia.org/wiki/Pastebin)_, with each gist having its own Git repository. Such repositories are also called gists.
+_[Gist](https://gist.github.com)_ is a web site run by GitHub, designed for simple Git projects that consist of a small number of files, or a single file or snippet. Gist is similar to a _[pastebin](https://en.wikipedia.org/wiki/Pastebin)_, with each _gist_ having its own Git repository. Such a repository is also called a _gist_.
 
 ## Terms & concepts: Working with repositories
 
-A _repository_ is a set of files (usually source code) that makes up a project, stored on a Git server (such as GitHub).
+A _repository_ is a set of files (usually source code) that makes up a project, stored on a Git server (such as GitHub), along with information maintained by Git in a `.git` subfolder.
 
 _`init`_ -- creates a repository, either local (in the directory you specify) or remote (by running it on a server). This is how you create a repository from scratch. Most repositories are created by cloning instead.
 
@@ -67,7 +67,7 @@ A _clone_ is a copy of a repository that remembers the repository it is a copy o
 
 A _fork_ of a repository is a clone of that repository. __Mental floss__: This is among the most confusing parts of learning Git. Git has no "fork" command; GitHub added the "fork" operation to make collaboration easier by automating the common "fork and pull request" workflow. A typical workflow for making changes to a project is that you "fork" the project's "master" repository on the server (thus creating a copy of the master in your account so that you can modify it), and then "clone" a copy of the fork on your local machine (where you can make changes and test them out). The fork and the clone are both repositories, each remembering its immediate parent. The word "fork" can refer to a copy of a repository on a server, or to a local clone of that copy, or to both, or to the act of creating them.
 
-A _branch_ is similar to a fork, but it happens within a repository instead of creating a new repository. Only registered collaborators on a project can create a branch. A branch is a pointer to a commit. The branch becomes another remote for the project. Branches have labels. Every branch has a default label called `master`, which always points to the latest commit for that branch. [tbd: check all this]
+A _branch_ is similar to a fork, but it happens within a repository instead of creating a new repository. Only registered collaborators on a project can create a branch. A branch is a pointer to a commit. The branch becomes another remote for the project. Branches have labels. Every branch has a default label called `master`, which always points to the latest commit for that branch. [tbd: check all this and write it more clearly]
 
 A _pull request_ is the way to tell the owner of a repository that you have some code that you think should be merged into the repository. In other words, you are requesting that the repository owner accept your changes by "pulling" them into his project; you are not allowed to "push" your changes into someone else's repository.
 
